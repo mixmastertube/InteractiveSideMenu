@@ -64,7 +64,7 @@ private extension MenuContainerViewController {
      - parameter selectedContentVC: The view controller to be added.
      */
     func setCurrentView(_ selectedContentVC: UIViewController) {
-        addChildViewController(selectedContentVC)
+        addChild(selectedContentVC)
         view.addSubviewWithFullSizeConstraints(view: selectedContentVC.view)
         currentContentViewController = selectedContentVC
     }
@@ -78,7 +78,7 @@ private extension MenuContainerViewController {
         if let currentContentVC = currentContentViewController {
             if currentContentVC != selectedContentVC {
                 currentContentVC.view.removeFromSuperview()
-                currentContentVC.removeFromParentViewController()
+                currentContentVC.removeFromParent()
 
                 setCurrentView(selectedContentVC)
             }
